@@ -11,12 +11,31 @@ class SignUpFormState extends State<SignUpForm> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Container(
-      color: const Color.fromRGBO(228, 143, 239, 100.0),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 75.0),
-        child: new Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25.0),
+    return new Scaffold(
+      resizeToAvoidBottomPadding: false,
+      backgroundColor: const Color.fromRGBO(228, 143, 239, 100.0),
+      body: new SignUpBox(),
+    );
+  }
+}
+
+class SignUpBox extends StatelessWidget {
+  const SignUpBox({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final double boxHeight = 515.0;
+    final double boxWidth = 325.0;
+
+    return new Padding(
+      padding: const EdgeInsets.only(top: 50.0),
+      child: new Align(
+        alignment: Alignment.topCenter,
+        child: SizedBox(
+          height: boxHeight,
+          width: boxWidth,
           child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(60.0),
@@ -36,46 +55,66 @@ class SignUpFormState extends State<SignUpForm> {
                     children: <Widget>[
                       Text(
                         "Quality Time",
-                        style: TextStyle(fontSize: 25.0, color: Colors.black),
+                        style: TextStyle(fontSize: 35.0, color: Colors.black),
                         textAlign: TextAlign.center,
                         textDirection: TextDirection.ltr,
                       ),
                       Padding(padding: const EdgeInsets.all(5.0)),
                       Text(
-                        "A Couples App",
+                        "Keeping you in touch.",
                         style: TextStyle(
                             fontStyle: FontStyle.italic,
-                            fontSize: 14.0,
+                            fontSize: 18.0,
                             color: Colors.purpleAccent),
                         textAlign: TextAlign.center,
                         textDirection: TextDirection.ltr,
-                      )
+                      ),
+                      Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 25.0)),
+                      new SignUpFields(),
                     ],
                   ),
                 ),
-              )
-              // child: TextInput(
-              //     label: "Email: ", errorMessage: "Please enter your email."),
-              ),
+              )),
         ),
       ),
     );
   }
 }
 
-class TextInput extends StatelessWidget {
-  final String label, errorMessage;
-
-  TextInput({@required this.label, @required this.errorMessage});
+class SignUpFields extends StatelessWidget {
+  const SignUpFields({
+    Key key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-      child: Row(
-        children: <Widget>[Text("Hello World!")],
-      ),
+    return new Row(
+      textDirection: TextDirection.ltr,
+      children: <Widget>[
+        new Container(
+          alignment: Alignment.bottomLeft,
+          width: 70.0,
+          child: Text(
+            "Email: ",
+            style: TextStyle(fontSize: 20.0, color: Colors.black),
+            textDirection: TextDirection.ltr,
+            overflow: TextOverflow.clip,
+          ),
+        ),
+        new Expanded(child: TextField()),
+        new Container(
+          alignment: Alignment.bottomLeft,
+          width: 70.0,
+          child: Text(
+            "Password: ",
+            style: TextStyle(fontSize: 20.0, color: Colors.black),
+            textDirection: TextDirection.ltr,
+            overflow: TextOverflow.clip,
+          ),
+        ),
+        new Expanded(child: TextField())
+      ],
     );
   }
 }
