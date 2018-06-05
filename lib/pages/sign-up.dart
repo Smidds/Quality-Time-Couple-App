@@ -48,24 +48,21 @@ class SignUpBox extends StatelessWidget {
                 ],
               ),
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 50.0),
+                padding: const EdgeInsets.symmetric(vertical: 25.0),
                 child: new Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: new Column(
                     children: <Widget>[
                       Text(
                         "Quality Time",
-                        style: Theme.of(context).textTheme.display4,
+                        style: Theme.of(context).textTheme.title.copyWith(fontFamily: "Pacifico"),
                         textAlign: TextAlign.center,
                         textDirection: TextDirection.ltr,
                       ),
                       Padding(padding: const EdgeInsets.all(5.0)),
                       Text(
                         "Keeping you in touch.",
-                        style: TextStyle(
-                            fontStyle: FontStyle.italic,
-                            fontSize: 18.0,
-                            color: Colors.purpleAccent),
+                        style: Theme.of(context).textTheme.subhead.copyWith(fontFamily: "Karla"),
                         textAlign: TextAlign.center,
                         textDirection: TextDirection.ltr,
                       ),
@@ -103,7 +100,9 @@ class SignUpFields extends StatelessWidget {
                 textDirection: TextDirection.ltr,
               ),
             ),
-            new Expanded(child: TextField())
+            new Expanded(child: TextField(
+              keyboardType: TextInputType.emailAddress,
+            ))
           ],
         ),
         new Padding(padding: const EdgeInsets.symmetric(vertical: 10.0)),
@@ -118,33 +117,47 @@ class SignUpFields extends StatelessWidget {
                 textDirection: TextDirection.ltr,
               ),
             ),
-            new Expanded(child: TextField())
+            new Expanded(child: TextField(
+              keyboardType: TextInputType.text,
+              obscureText: true,
+            ))
           ],
         ),
         Padding(padding: const EdgeInsets.symmetric(vertical: 15.0)),
-        new Row(
-          children: <Widget>[
-            Expanded(
-              child: RaisedButton(
-                onPressed: () => {},
-                color: Theme.of(context).buttonColor,
-                elevation: 4.0,
-                splashColor: Theme.of(context).accentColor,
-                child: Text("Login"),
-              ),
-            ),
-            Padding(padding: const EdgeInsets.symmetric(horizontal: 5.0)),
-            Expanded(
-              child: RaisedButton(
-                onPressed: () => {},
-                color: Theme.of(context).buttonColor,
-                elevation: 4.0,
-                splashColor: Theme.of(context).accentColor,
-                child: Text("Sign Up"),
-              ),
-            )
-          ],
+        new FormButtons(),
+      ],
+    );
+  }
+}
+
+class FormButtons extends StatelessWidget {
+  const FormButtons({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return new Row(
+      children: <Widget>[
+        Expanded(
+          child: RaisedButton(
+            onPressed: () => {},
+            color: Theme.of(context).buttonColor,
+            elevation: 4.0,
+            splashColor: Theme.of(context).accentColor,
+            child: Text("Login"),
+          ),
         ),
+        Padding(padding: const EdgeInsets.symmetric(horizontal: 5.0)),
+        Expanded(
+          child: RaisedButton(
+            onPressed: () => {},
+            color: Theme.of(context).buttonColor,
+            elevation: 4.0,
+            splashColor: Theme.of(context).accentColor,
+            child: Text("Sign Up"),
+          ),
+        )
       ],
     );
   }
