@@ -26,11 +26,11 @@ class SignUpBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double boxHeight = 515.0;
+    final double boxHeight = 420.0;
     final double boxWidth = 325.0;
 
     return new Padding(
-      padding: const EdgeInsets.only(top: 50.0),
+      padding: const EdgeInsets.only(top: 100.0),
       child: new Align(
         alignment: Alignment.topCenter,
         child: SizedBox(
@@ -55,7 +55,7 @@ class SignUpBox extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         "Quality Time",
-                        style: TextStyle(fontSize: 35.0, color: Colors.black),
+                        style: Theme.of(context).textTheme.display4,
                         textAlign: TextAlign.center,
                         textDirection: TextDirection.ltr,
                       ),
@@ -89,31 +89,62 @@ class SignUpFields extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new Row(
-      textDirection: TextDirection.ltr,
+    return new Column(
       children: <Widget>[
-        new Container(
-          alignment: Alignment.bottomLeft,
-          width: 70.0,
-          child: Text(
-            "Email: ",
-            style: TextStyle(fontSize: 20.0, color: Colors.black),
-            textDirection: TextDirection.ltr,
-            overflow: TextOverflow.clip,
-          ),
+        new Row(
+          textDirection: TextDirection.ltr,
+          children: <Widget>[
+            new Container(
+              alignment: Alignment.bottomLeft,
+              width: 70.0,
+              child: Text(
+                "Email: ",
+                style: TextStyle(fontSize: 20.0, color: Colors.black),
+                textDirection: TextDirection.ltr,
+              ),
+            ),
+            new Expanded(child: TextField())
+          ],
         ),
-        new Expanded(child: TextField()),
-        new Container(
-          alignment: Alignment.bottomLeft,
-          width: 70.0,
-          child: Text(
-            "Password: ",
-            style: TextStyle(fontSize: 20.0, color: Colors.black),
-            textDirection: TextDirection.ltr,
-            overflow: TextOverflow.clip,
-          ),
+        new Padding(padding: const EdgeInsets.symmetric(vertical: 10.0)),
+        new Row(
+          children: <Widget>[
+            new Container(
+              alignment: Alignment.bottomLeft,
+              width: 115.0,
+              child: Text(
+                "Password: ",
+                style: TextStyle(fontSize: 20.0, color: Colors.black),
+                textDirection: TextDirection.ltr,
+              ),
+            ),
+            new Expanded(child: TextField())
+          ],
         ),
-        new Expanded(child: TextField())
+        Padding(padding: const EdgeInsets.symmetric(vertical: 15.0)),
+        new Row(
+          children: <Widget>[
+            Expanded(
+              child: RaisedButton(
+                onPressed: () => {},
+                color: Theme.of(context).buttonColor,
+                elevation: 4.0,
+                splashColor: Theme.of(context).accentColor,
+                child: Text("Login"),
+              ),
+            ),
+            Padding(padding: const EdgeInsets.symmetric(horizontal: 5.0)),
+            Expanded(
+              child: RaisedButton(
+                onPressed: () => {},
+                color: Theme.of(context).buttonColor,
+                elevation: 4.0,
+                splashColor: Theme.of(context).accentColor,
+                child: Text("Sign Up"),
+              ),
+            )
+          ],
+        ),
       ],
     );
   }

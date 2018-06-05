@@ -53,5 +53,20 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
+fonts:
+  - family: Pacifico
+    fonts:
+      - asset: fonts/Pacifico/Pacifico-Regular.ttf
+  - family: Karla
+    fonts:
+      - asset: fonts/Karla/Karla-Regular.ttf
+      - asset: fonts/Karla/Karla-Bold.ttf 
+        weight: 700
+      - asset: fonts/Karla/Karla-BoldItalic.ttf 
+        weight: 700
+        style: italic
+      - asset: fonts/Karla/Karla-Italic.ttf 
+        style: italic
+
   # For details regarding fonts from package dependencies,
   # see https://flutter.io/custom-fonts/#from-packages

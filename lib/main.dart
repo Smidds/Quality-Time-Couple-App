@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'style/theme.dart';
 import 'pages/sign-up.dart';
 
 void main() => runApp(new MyApp());
@@ -9,6 +10,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      home: SignUpForm());
+        theme: getTheme(), title: "Quality Time", home: SignUpForm());
   }
 }
