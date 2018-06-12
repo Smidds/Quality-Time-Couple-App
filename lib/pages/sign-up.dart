@@ -13,7 +13,7 @@ class SignUpFormState extends State<SignUpForm> {
     // TODO: implement build
     return new Scaffold(
       resizeToAvoidBottomPadding: false,
-      backgroundColor: const Color.fromRGBO(228, 143, 239, 100.0),
+      backgroundColor: const Color.fromRGBO(228, 143, 239, 100.0),  
       body: new SignUpBox(),
     );
   }
@@ -27,7 +27,7 @@ class SignUpBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double boxHeight = 420.0;
-    final double boxWidth = 325.0;
+    final double boxWidth = 345.0;
 
     return new Padding(
       padding: const EdgeInsets.only(top: 100.0),
@@ -102,6 +102,7 @@ class SignUpFields extends StatelessWidget {
             ),
             new Expanded(child: TextField(
               keyboardType: TextInputType.emailAddress,
+              style: Theme.of(context).textTheme.subhead.copyWith(letterSpacing: 3.0, fontSize: 12.0, fontFamily: "Roboto")
             ))
           ],
         ),
@@ -120,6 +121,7 @@ class SignUpFields extends StatelessWidget {
             new Expanded(child: TextField(
               keyboardType: TextInputType.text,
               obscureText: true,
+              style: Theme.of(context).textTheme.subhead.copyWith(letterSpacing: 3.0, fontSize: 18.0, fontFamily: "Roboto")
             ))
           ],
         ),

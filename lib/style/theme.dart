@@ -12,5 +12,7 @@ ThemeData getTheme() {
           subhead: TextStyle(
                             fontStyle: FontStyle.italic,
                             fontSize: 18.0,
-                            color: Colors.purpleAccent),));
+                            color: Colors.purpleAccent),
+          button: TextStyle(fontSize: 20.0),
+          ));
 }
